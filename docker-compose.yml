@@ -3,6 +3,5 @@ version: "3.9"
 services:
   node-app:
     build: .
-    container_name: node-hello-world
     ports:
       - "3000:3000"
