@@ -2,8 +2,7 @@ name: Build and Push to ECR
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   build-and-push:
@@ -20,10 +19,10 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-south-1
 
-      - name: Login to Amazon ECR
+      - name: Login to ECR
         uses: aws-actions/amazon-ecr-login@v2
 
-      - name: Build Docker Image
+      - name: Build Image
         run: docker compose build
 
       - name: Tag Image
